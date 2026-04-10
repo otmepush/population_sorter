@@ -2,12 +2,14 @@
 Population Sorter
 Format of input file: country name, area, population
 """
+
+
 def read_population_file(filepath: str) -> list[dict]:
     if not filepath.endswith(".txt"):
         raise ValueError(
             f"File must have .txt extension, got: {filepath}"
         )
- 
+
     records = []
     with open(filepath, "r", encoding="utf-8") as f:
         for line_num, line in enumerate(f, start=1):
@@ -40,13 +42,15 @@ def read_population_file(filepath: str) -> list[dict]:
 
 def sort_by_area(records: list[dict], ascending: bool = True) -> list[dict]:
     return sorted(records, key=lambda r: r["area"], reverse=not ascending)
- 
+
+
 def sort_by_population(
     records: list[dict], ascending: bool = True
 ) -> list[dict]:
     return sorted(
         records, key=lambda r: r["population"], reverse=not ascending
     )
+
 
 if __name__ == "__main__":
     import sys
@@ -61,3 +65,4 @@ if __name__ == "__main__":
     print("\n--- Sorted by Population ---")
     for r in sort_by_population(data, ascending=False):
         print(f"{r['country']:<15} population: {r['population']:>12,}")
+        

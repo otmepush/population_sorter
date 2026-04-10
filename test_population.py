@@ -46,7 +46,7 @@ def test_read_file_not_found():
 
 @pytest.mark.parametrize("ascending,expected", [
     (True, "Vatican"),
-    (False, "Ukraine"),
+    (False, "Canada"),
 ])
 def test_sort_by_area_first(sample_records, ascending, expected):
     result = sort_by_area(sample_records, ascending=ascending)
@@ -57,7 +57,7 @@ def test_sort_by_area_first(sample_records, ascending, expected):
 
 @pytest.mark.parametrize("ascending,expected", [
     (True, "Vatican"),
-    (False, "Canada"),
+    (False, "Ukraine"),
 ])
 def test_sort_by_population_first(sample_records, ascending, expected):
     result = sort_by_population(sample_records, ascending=ascending)

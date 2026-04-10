@@ -1,0 +1,22 @@
+name: CI — Tests & PEP8
+
+on:
+  push:
+    branches: ["**"]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -r requirements.txt
+      - run: flake8 population.py test_population.py --max-line-length=88
+      - run: pytest test_population.py --html=report.html --self-contained-html -v
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: pytest-html-report
+          path: report.html

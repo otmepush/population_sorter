@@ -62,4 +62,3 @@ def test_sort_by_area_first(sample_records, ascending, expected):
 def test_sort_by_population_first(sample_records, ascending, expected):
     result = sort_by_population(sample_records, ascending=ascending)
     assert result[0]["country"] == expected
-    

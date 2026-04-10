@@ -47,3 +47,17 @@ def sort_by_population(
     return sorted(
         records, key=lambda r: r["population"], reverse=not ascending
     )
+
+if __name__ == "__main__":
+    import sys
+
+    path = sys.argv[1] if len(sys.argv) > 1 else "sample.txt"
+    data = read_population_file(path)
+
+    print("\n--- Sorted by Area ---")
+    for r in sort_by_area(data, ascending=False):
+        print(f"{r['country']:<15} area: {r['area']:>12,.2f} km²")
+
+    print("\n--- Sorted by Population ---")
+    for r in sort_by_population(data, ascending=False):
+        print(f"{r['country']:<15} population: {r['population']:>12,}")

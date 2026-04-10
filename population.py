@@ -64,4 +64,4 @@ if __name__ == "__main__":
 
     print("\n--- Sorted by Population ---")
     for r in sort_by_population(data, ascending=False):
-        print(f"{r['country']:<15} population: {r['population']:>12,}"
+        print(f"{r['country']:<15} population: {r['population']:>12,}")

@@ -41,3 +41,9 @@ def read_population_file(filepath: str) -> list[dict]:
 def sort_by_area(records: list[dict], ascending: bool = True) -> list[dict]:
     return sorted(records, key=lambda r: r["area"], reverse=not ascending)
  
+def sort_by_population(
+    records: list[dict], ascending: bool = True
+) -> list[dict]:
+    return sorted(
+        records, key=lambda r: r["population"], reverse=not ascending
+    )
